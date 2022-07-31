@@ -1,0 +1,47 @@
+<div class="row">
+  
+  <!-- I wanted to use the stages array to dynamically create columns for each of the stages,
+  and then concatenate the stage with "Items" inside of a second for loop, to render the list 
+  of items for each stage. I couldn't find the correct syntax for that anywhere, so I left it 
+  commented down below so you all could see what I was thinking.  -->
+
+  <!-- <div class="col-md-3" *ngFor="let stage of stages">
+    <h3>{{stage}}</h3>
+    <div *ngFor="let item of {{stage}} + `$Items`">
+      <app-card data-test="assembly-stage" [item]="item" (click)="moveItemToTheLeft(item)" (contextmenu)="moveItemToTheRight(item)"></app-card>
+    </div>
+  </div> -->
+
+  <div class="col-md-3">
+    <h3>Idea</h3>
+    <div *ngFor="let item of ideaItems">
+      <div *ngIf="item">
+        <app-card data-test="assembly-stage" [item]="item" (click)="moveItemToTheLeft(item)" (contextmenu)="moveItemToTheRight(item)"></app-card>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <h3>Development</h3>
+    <div *ngFor="let item of developmentItems">
+      <div *ngIf="item">
+        <app-card [item]="item" (click)="moveItemToTheLeft(item)" (contextmenu)="moveItemToTheRight(item)"></app-card>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <h3>Testing</h3>
+    <div *ngFor="let item of testingItems">
+      <div *ngIf="item">
+        <app-card [item]="item" (click)="moveItemToTheLeft(item)" (contextmenu)="moveItemToTheRight(item)"></app-card>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <h3>Deployment</h3>
+    <div *ngFor="let item of deploymentItems">
+      <div *ngIf="item">
+        <app-card [item]="item" (click)="moveItemToTheLeft(item)" (contextmenu)="moveItemToTheRight(item)"></app-card>
+      </div>
+    </div>
+  </div>
+</div>
